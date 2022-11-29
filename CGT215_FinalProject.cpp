@@ -30,15 +30,16 @@ using namespace std;
 // change row and column
 const int row = 5;
 const int col = 4;
+
 // create row boundary
-int row_line() {
+void rowLine() {
 	cout << endl;
 	for (int i = 0; i < col; i++) {
 		cout << " -----";
 	}
 	cout << endl;
 }
-// return count of alive neighbors
+// return number of alive neighbors
 int countLiveNeighborCell(int a[row][col], int r, int c) {
 	int i, j, count = 0;
 	for (i = r - 1; i <= r + 1; i++) {
@@ -58,7 +59,7 @@ int main() {
 	int a[row][col], b[row][col];
 	int i, j;
 	int neighborLiveCell;
-	// generate canvas with random alive & dead cells
+	// generate grid with random alive & dead cells
 	for (i = 0; i < row; i++) {
 		for (j = 0; j < col; j++) {
 			a[i][j] = rand() % 2;
@@ -66,13 +67,13 @@ int main() {
 	}
 	// draw array
 	cout << "Initial Stage:";
-	row_line();
+	rowLine();
 	for (i = 0; i < row; i++) {
 		cout << ":";
 		for (j = 0; j < col; j++) {
 			cout << "  " << a[i][j] << "  :";
 		}
-		row_line();
+		rowLine();
 	}
 	// next generation (based on live cell count)
 	for (i = 0; i < row; i++) {
@@ -90,13 +91,13 @@ int main() {
 	}
 	// print next generation
 	cout << "\nNext Generation:";
-	row_line();
+	rowLine();
 	for (i = 0; i < row; i++) {
 		cout << ":";
 		for (j = 0; j < col; j++) {
 			cout << "  " << b[i][j] << "  :";
 		}
-		row_line();
+		rowLine();
 	}
 	return 0;
 }
